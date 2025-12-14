@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>岩手県 避難所ファインダー</title>
+    <meta name="description" content="現在地から最寄りの岩手県災害避難所を検索・表示します。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-content">
+            <h1>
+                <span class="icon">🛡️</span>
+                岩手県 避難所ファインダー
+            </h1>
+            <p>現在地周辺の避難所を即座に検索</p>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div id="status-message" class="status-box">現在地を取得中...</div>
+
+        <div class="content-wrapper">
+            <section class="map-section">
+                <div id="map"></div>
+                <button id="recenter-btn" class="floating-btn" aria-label="現在地に移動">
+                    📍
+                </button>
+            </section>
+
+            <section class="list-section">
+                <h2>最寄りの避難所</h2>
+                <div id="shelter-list" class="shelter-list">
+                    <!-- Shelter items will be injected here -->
+                    <div class="loading-placeholder">
+                        <div class="spinner"></div>
+                        <p>データを読み込んでいます...</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+        <p>Data Source: 岩手県オープンデータ (03000_1.csv)</p>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+    
+    <!-- PapaParse JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
